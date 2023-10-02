@@ -1,0 +1,65 @@
+/* google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Preahvihear&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* font-family: 'Inconsolata', monospace;
+font-family: 'Preahvihear', sans-serif; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+label,
+.brand {
+  @apply font-preahvihear;
+}
+p,
+span,
+a,
+li,
+button {
+  @apply font-inconsolata;
+}
+
+::-webkit-input-placeholder {
+  color: deeppink;
+}
+
+.search {
+  background-image: url("assets/images/icons8-search.svg");
+  background-repeat: no-repeat;
+  background-position: 16px center;
+  background-size: 24px;
+}
+
+/* custom scrollbar */
+
+::-webkit-scrollbar {
+  @apply bg-gray;
+  width: 7px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-gray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply rounded-lg bg-lightGreen;
+}
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} */
