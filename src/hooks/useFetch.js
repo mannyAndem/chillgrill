@@ -1,14 +1,17 @@
 import { useState } from "react";
 
-const useFetch = (url, options) => {
+const useFetch = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
 
   return [
-    async () => {
+    async (url) => {
+      setLoading(true);
+      setError(null);
+      setData(null);
       try {
-        let res = await fetch(url, options);
+        let res = await fetch(url);
         res = await res.json();
         setData(res);
         setLoading(false);
