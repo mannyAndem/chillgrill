@@ -20,24 +20,20 @@ const RecipeCard = ({ recipe }) => {
         <h3 className="text-2xl text-darkGreen font-bold mb-2">
           {recipe.title}
         </h3>
-        <p className="text text-darkGreen">
-          {/* {recipe.analyzedInstructions[0].steps[0].step} ... */}
-        </p>
         <div className="flex gap-2 items-center mt-2">
           <img
             src={chillGrillLogo}
             className="w-8 h-8 rounded-full border border-darkGreen"
           />
           <span className="font-bold text-xs text-lightGreen">
-            {recipe.creditsText}
+            The ChillGrill
           </span>
         </div>
       </div>
 
       {/* duration badge */}
-      <div className="absolute top-4 right-4 p-2 flex gap-2 items-center bg-darkGreen rounded-xl">
-        <AiOutlineClockCircle size={28} color="#D0E7D2" />
-        <span className="text-gray text-sm">{recipe.readyInMinutes} mins</span>
+      <div className="absolute top-4 right-4 p-4 flex justify-center items-center bg-darkGreen rounded-xl">
+        <span className="text-gray text-sm">Click for details</span>
       </div>
     </Link>
   );

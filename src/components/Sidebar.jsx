@@ -17,13 +17,8 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="sticky top-0 p-4 col-span-1 h-screen bg-lightGreen rounded-lg flex flex-col items-center justify-center gap-8">
+    <div className="sticky bottom-0 lg:top-0 p-4 lg:col-span-1 w-screen lg:h-screen lg:w-auto bg-lightGreen rounded-lg flex flex-row lg:flex-col items-center justify-center gap-2 lg:gap-8">
       <SidebarIcon icon={<BiHome size={42} />} to="/dashboard" tooltip="Home" />
-      <SidebarIcon
-        icon={<IoCreateOutline size={42} />}
-        to="/dashboard/create"
-        tooltip="Create"
-      />
       <SidebarIcon
         icon={<PiMedalBold size={42} />}
         to="/dashboard/favourites"

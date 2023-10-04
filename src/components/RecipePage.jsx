@@ -5,10 +5,10 @@ import useFetch from "../hooks/useFetch";
 const RecipePage = () => {
   const { id } = useParams();
   const url = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=c2a71c51256b4458a9c2e4475fef333b`;
-  const [getData, recipe, error, loading] = useFetch(url);
+  const [getData, recipe, error, loading] = useFetch();
 
   useEffect(() => {
-    getData();
+    getData(url);
   }, []);
   return (
     recipe && (

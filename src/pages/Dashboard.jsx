@@ -9,7 +9,7 @@ import Sidebar from "../components/Sidebar";
 import RecipePage from "../components/RecipePage";
 const Dashboard = () => {
   return (
-    <div className="relative grid grid-cols-5">
+    <div className="relative lg:grid lg:grid-cols-5">
       <Sidebar />
       <div className="col-span-4 p-8">
         <Routes>

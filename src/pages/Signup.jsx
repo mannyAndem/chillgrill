@@ -40,13 +40,15 @@ const Signup = () => {
   };
 
   return (
-    <div className="py-24 px-32">
-      <div className="pr-16 bg-lightGreen rounded-lg shadow-lg text-gray flex gap-16 items-center">
-        <div className="w-1/2 self-stretch">
+    <div className="px-8 py-24 lg:px-32">
+      <div className="lg:pr-16 bg-lightGreen rounded-lg shadow-lg text-gray flex gap-16 items-center">
+        <div className="hidden w-1/2 self-stretch lg:block">
           <img src={signupImg} className="object-cover h-full rounded-lg" />
         </div>
-        <div className="w-1/2 py-16">
-          <h2 className="text-4xl font-bold">Create Account</h2>
+        <div className="px-5 w-full py-16 lg:w-1/2 lg:px-0">
+          <h2 className="text-2xl font-bold text-center lg:text-4xl lg:text-left">
+            Create Account
+          </h2>
           <form
             className="mt-16 flex flex-col gap-6"
             onSubmit={(e) => handleSubmit(e)}
@@ -89,7 +91,7 @@ const Signup = () => {
                 <span></span>
               </div>
               <div className="flex flex-col gap-3">
-                <label htmlFor="password">Create Password</label>
+                <label htmlFor="password">Password</label>
                 <input
                   type="password"
                   placeholder="Enter a strong password"
@@ -117,7 +119,7 @@ const Signup = () => {
               <hr className="h-1 border-none bg-gray rounded-md w-1/2" />
             </div>
             <button
-              className="flex justify-center gap-4 items-center border-2 border-darkGreen text-gray rounded-md py-4 px-8 text-xl font-bold"
+              className="flex justify-center gap-2 items-center border-2 border-darkGreen text-gray rounded-md py-4 px-4 font-bold lg:px-8 lg:gap-2 lg:text-xl"
               onClick={handleClick}
             >
               Continue with Google <img src={googleLogo} className="h-8" />

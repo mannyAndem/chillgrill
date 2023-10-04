@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const GetStarted = () => {
   return (
-    <section className="py-24 px-16 ">
-      <div className="bg-darkGreen rounded-lg shadow-lg p-16 flex flex-col gap-8 items-center">
+    <section className="p-5 py-24 lg:px-16">
+      <div className="bg-darkGreen rounded-lg shadow-lg p-8 flex flex-col gap-8 items-center lg:p-16">
         <h2 className="text-4xl font-bold text-center text-gray">
           Create a free account to get started
         </h2>
