@@ -5,13 +5,15 @@ import DashboardHome from "../components/DashboardHome";
 import DashboardCreate from "../components/DashboardCreate";
 import DashboardFavourites from "../components/DashboardFavourites";
 import DashboardProfile from "../components/DashboardProfile";
-import Sidebar from "../components/Sidebar";
+import DesktopSidebar from "../components/DesktopSidebar";
+import MobileSidebar from "../components/MobileSidebar";
 import RecipePage from "../components/RecipePage";
 const Dashboard = () => {
   return (
     <div className="relative lg:grid lg:grid-cols-5">
-      <Sidebar />
-      <div className="col-span-4 p-8">
+      <DesktopSidebar />
+      <MobileSidebar />
+      <div className="lg:col-span-4 lg:p-8">
         <Routes>
           <Route path="" element={<DashboardHome />} />
           <Route path="create" element={<DashboardCreate />} />

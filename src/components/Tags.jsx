@@ -44,8 +44,10 @@ const Tags = ({ activeTag, setActiveTag }) => {
   };
 
   return (
-    <div className="my-4 border-y border-darkGreen p-4 flex justify-between items-center gap-4">
-      <span className="font-bold text-2xl text-darkGreen">Tags: </span>
+    <div className="w-full my-4 border-y border-darkGreen p-4 flex lg:justify-between items-center gap-2 lg:gap-4 overflow-x-scroll">
+      <span className="font-bold text-sm lg:text-2xl text-darkGreen">
+        Tags:{" "}
+      </span>
       {tags.map((tag) => (
         <Tag
           key={tag.id}

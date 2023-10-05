@@ -148,9 +148,9 @@ const DashboardProfile = () => {
               </div>
             </div>
           </div>
-          <div className="mt-16 flex gap-8">
+          <div className="mt-16 flex flex-col lg:flex-row gap-8">
             <button
-              className="relative w-full bg-darkGreen border-2 border-darkGreen text-gray rounded-md py-4 px-8 text-xl font-bold self-center"
+              className=" w-full bg-darkGreen border-2 border-darkGreen text-gray rounded-md py-4 px-8 text-xl font-bold self-center"
               type="submit"
               disabled={loading}
             >

@@ -3,7 +3,10 @@ import useFetch from "../hooks/useFetch";
 
 const Search = ({ searchValue, setSearchValue, handleSubmit }) => {
   return (
-    <form className="w-3/5 flex items-center" onSubmit={(e) => handleSubmit(e)}>
+    <form
+      className="w-full lg:w-3/5 flex items-center"
+      onSubmit={(e) => handleSubmit(e)}
+    >
       <input
         type="search"
         placeholder="Search recipes"

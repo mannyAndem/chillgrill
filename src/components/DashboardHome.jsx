@@ -40,7 +40,9 @@ const DashboardHome = () => {
   return (
     <div className="px-8 py-2">
       <div className="mb-8 items-center flex justify-between">
-        <h1 className="text-3xl text-darkGreen font-bold">The ChillGrill</h1>
+        <h1 className="hidden lg:block text-3xl text-darkGreen font-bold">
+          The ChillGrill
+        </h1>
         <Search
           searchValue={searchValue}
           setSearchValue={setSearchValue}
