@@ -14,7 +14,7 @@ const MobileSidebar = () => {
   };
 
   return (
-    <div className="py-10 block lg:hidden">
+    <div className="z-50 py-10 block lg:hidden">
       <div className="absolute top-4 left-4 z-[1000]">
         <HiMenuAlt3
           size={42}
@@ -30,9 +30,10 @@ const MobileSidebar = () => {
         />
       </div>
       <ul
-        className={`bg-lightGreen transform origin-left transition-all duration-300 ease-out flex flex-col absolute h-screen top-0 left-0 w-[60vw] gap-8 py-16 items-center ${
+        className={`bg-lightGreen transform origin-left transition-all duration-300 ease-out flex flex-col absolute h-screen top-0 left-0 w-[60vw] gap-8 py-32 items-center ${
           expanded ? "scale-x-100" : "scale-x-0"
         }`}
+        onClick={() => setExpanded(false)}
       >
         <SidebarIcon
           icon={<BiHome size={42} />}

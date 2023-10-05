@@ -12,7 +12,7 @@ const RecipePage = () => {
   }, []);
   return (
     recipe && (
-      <div className="text-darkGreen">
+      <div className="text-darkGreen px-5">
         <img
           src={recipe.image}
           className="mb-16 w-full h-60 object-cover rounded-lg shadow-lg"
@@ -26,7 +26,10 @@ const RecipePage = () => {
           <h2 className="text-2xl">Ingredients You'll Need</h2>
           <ul className="mt-8 pl-8 flex flex-col gap-4">
             {recipe.extendedIngredients.map((ingredient) => (
-              <li className="capitalize font-semibold">
+              <li
+                key={recipe.extendedIngredients.indexOf(ingredient)}
+                className="capitalize font-semibold"
+              >
                 {ingredient.original}
               </li>
             ))}
@@ -35,7 +38,10 @@ const RecipePage = () => {
           <ol>
             {recipe.analyzedInstructions[0].steps.map((step) => {
               return (
-                <li className="my-4">
+                <li
+                  className="my-4"
+                  key={recipe.analyzedInstructions[0].steps.indexOf(step)}
+                >
                   {recipe.analyzedInstructions[0].steps.indexOf(step) + 1}.{" "}
                   {step.step}
                 </li>
