@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -13,7 +13,7 @@ import {
 } from "firebase/auth";
 import app from "../firebase/firebase";
 
-export const AuthContext = React.createContext();
+export const AuthContext = createContext();
 
 // firebase auth initialization
 const auth = getAuth(app);

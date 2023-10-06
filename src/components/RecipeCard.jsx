@@ -1,22 +1,32 @@
-import jollofImg from "../assets/images/jollof-img.jpg";
 import chillGrillLogo from "../assets/images/about.jpg";
-import { AiOutlineClockCircle } from "react-icons/ai";
+import { BsFillBookmarkFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { FavouritesContext } from "../contexts/FavouritesContext";
 
-const RecipeCard = ({ recipe }) => {
+const RecipeCard = ({ recipe, addedToFavourites }) => {
+  const { updateFavourites } = useContext(FavouritesContext);
+
+  const handleClick = () => {
+    updateFavourites(recipe);
+  };
+
   return (
-    <Link
-      className="lg:relative flex flex-col lg:flex-row gap-8 p-8 bg-veryLightGreen bg-opacity-50 rounded-lg items-center cursor-pointer hover:shadow-md transition-all duration-300 ease-out"
-      to={`/dashboard/recipes/${recipe.id}`}
-    >
-      <div className="flex-shrink-0">
+    <div className="relative flex flex-col lg:flex-row gap-8 p-8 bg-veryLightGreen bg-opacity-50 rounded-lg items-center hover:shadow-md transition-all duration-300 ease-out">
+      <Link
+        className="flex-shrink-0 cursor-pointer"
+        to={`/dashboard/recipes/${recipe.id}`}
+      >
         <img
           src={recipe.image}
           className="shadow-md h-40 w-40 object-cover rounded-md"
           alt="recipe-img"
         />
-      </div>
-      <div className=" flex-col justify-around items-center lg:items-start text-center lg:text-start">
+      </Link>
+      <Link
+        className="cursor-pointer flex-col justify-around items-center lg:items-start text-center lg:text-start"
+        to={`/dashboard/recipes/${recipe.id}`}
+      >
         <h3 className="text-2xl text-darkGreen font-bold mb-2">
           {recipe.title}
         </h3>
@@ -29,13 +39,23 @@ const RecipeCard = ({ recipe }) => {
             The ChillGrill
           </span>
         </div>
-      </div>
+      </Link>
 
-      {/* duration badge */}
-      <div className="hidden lg:flex absolute top-4 right-4 p-4 justify-center items-center bg-darkGreen rounded-xl">
+      <Link
+        className="cursor-pointer hidden lg:flex absolute top-4 right-4 p-4 justify-center items-center bg-darkGreen rounded-xl"
+        to={`/dashboard/recipes/${recipe.id}`}
+      >
         <span className="text-gray text-sm">Click for details</span>
-      </div>
-    </Link>
+      </Link>
+
+      {/* favourite */}
+      <BsFillBookmarkFill
+        color={addedToFavourites ? "#79AC78" : "#D0E7D2"}
+        size={28}
+        className="absolute bottom-4 right-4 cursor-pointer"
+        onClick={handleClick}
+      />
+    </div>
   );
 };
 

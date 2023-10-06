@@ -1,9 +1,10 @@
 import useFetch from "../hooks/useFetch";
 import RecipeCard from "./RecipeCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Spinner from "./Spinner";
 import Tags from "./Tags";
 import Search from "./Search";
+import { FavouritesContext } from "../contexts/FavouritesContext";
 
 const DashboardHome = () => {
   // spoonacular url
@@ -37,6 +38,9 @@ const DashboardHome = () => {
     }
     getData(url);
   }, [activeTag]);
+
+  const { favourites } = useContext(FavouritesContext);
+
   return (
     <div className="px-8 py-2">
       <div className="mb-8 items-center flex justify-between">
@@ -58,14 +62,38 @@ const DashboardHome = () => {
         )}
         {data &&
           data.results &&
-          data.results.map((result) => (
-            <RecipeCard key={result.id} recipe={result} />
-          ))}
+          data.results.map((result) => {
+            return favourites.find((item) => item.id == result.id) ? (
+              <RecipeCard
+                key={result.id}
+                recipe={result}
+                addedToFavourites={true}
+              />
+            ) : (
+              <RecipeCard
+                key={result.id}
+                recipe={result}
+                addedToFavourites={false}
+              />
+            );
+          })}
         {data &&
           data.recipes &&
-          data.recipes.map((recipe) => (
-            <RecipeCard key={recipe.id} recipe={recipe} />
-          ))}
+          data.recipes.map((recipe) => {
+            return favourites.find((item) => item.id == recipe.id) ? (
+              <RecipeCard
+                key={recipe.id}
+                recipe={recipe}
+                addedToFavourites={true}
+              />
+            ) : (
+              <RecipeCard
+                key={recipe.id}
+                recipe={recipe}
+                addedToFavourites={false}
+              />
+            );
+          })}
         {error && (
           <p className="text-3xl text-red-500 font-bold">An error occurred</p>
         )}

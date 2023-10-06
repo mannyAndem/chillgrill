@@ -8,19 +8,24 @@ import DashboardProfile from "../components/DashboardProfile";
 import DesktopSidebar from "../components/DesktopSidebar";
 import MobileSidebar from "../components/MobileSidebar";
 import RecipePage from "../components/RecipePage";
+import FavouritesContextProvider, {
+  FavouritesContext,
+} from "../contexts/FavouritesContext";
 const Dashboard = () => {
   return (
     <div className="relative lg:grid lg:grid-cols-5">
       <DesktopSidebar />
       <MobileSidebar />
       <div className="lg:col-span-4 lg:p-8">
-        <Routes>
-          <Route path="" element={<DashboardHome />} />
-          <Route path="create" element={<DashboardCreate />} />
-          <Route path="favourites" element={<DashboardFavourites />} />
-          <Route path="profile" element={<DashboardProfile />} />
-          <Route path="recipes/:id" element={<RecipePage />} />
-        </Routes>
+        <FavouritesContextProvider>
+          <Routes>
+            <Route path="" element={<DashboardHome />} />
+            <Route path="create" element={<DashboardCreate />} />
+            <Route path="favourites" element={<DashboardFavourites />} />
+            <Route path="profile" element={<DashboardProfile />} />
+            <Route path="recipes/:id" element={<RecipePage />} />
+          </Routes>
+        </FavouritesContextProvider>
       </div>
     </div>
   );
