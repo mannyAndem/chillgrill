@@ -3,7 +3,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signInWithRedirect,
+  sendPasswordResetEmail,
+  updateEmail,
   onAuthStateChanged,
   signOut,
   GoogleAuthProvider,
@@ -49,7 +50,12 @@ const AuthContextProvider = ({ children }) => {
       displayName: name,
     });
   };
-
+  const changePassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+  const changeEmail = (user, email) => {
+    return updateEmail(user, email);
+  };
   return (
     <AuthContext.Provider
       value={{
@@ -59,6 +65,8 @@ const AuthContextProvider = ({ children }) => {
         loginWithGoogle,
         createAccount,
         signout,
+        changePassword,
+        changeEmail,
       }}
     >
       {!loading && children}

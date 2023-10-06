@@ -84,7 +84,15 @@ const Login = () => {
               <span className={loading ? "opacity-0" : "opacity-100"}>
                 Login
               </span>
-              {loading && <Spinner size="16" color="gray" />}
+              {loading && (
+                <Spinner
+                  options={{
+                    size: 16,
+                    color: "gray",
+                    position: "absolute",
+                  }}
+                />
+              )}
             </button>
           </form>
           <div className="mt-6 flex flex-col items-stretch gap-6">

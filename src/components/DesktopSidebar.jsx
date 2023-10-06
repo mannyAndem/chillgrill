@@ -11,13 +11,13 @@ const DesktopSidebar = () => {
   const navigate = useNavigate();
 
   const { signout } = useContext(AuthContext);
-  const handleClick = async () => {
+  const handleSignout = async () => {
     await signout();
-    navigate("/login");
+    navigate("/");
   };
 
   return (
-    <div className="relative hidden top-0 p-4 col-span-1 h-screen bg-lightGreen rounded-lg flex-col items-center justify-center gap-8 lg:flex">
+    <div className="sticky hidden top-0 p-4 col-span-1 h-screen bg-lightGreen rounded-lg flex-col items-center justify-center gap-8 lg:flex">
       <SidebarIcon icon={<BiHome size={42} />} to="/dashboard" tooltip="Home" />
       <SidebarIcon
         icon={<PiMedalBold size={42} />}
@@ -31,7 +31,7 @@ const DesktopSidebar = () => {
       />
       <button
         className="absolute  bottom-4 left-1/2 transform -translate-x-1/2 p-4 rounded-md shadow-md bg-darkGreen border border-darkGreen text-gray"
-        onClick={handleClick}
+        onClick={handleSignout}
       >
         Sign out
       </button>

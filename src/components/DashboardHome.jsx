@@ -51,7 +51,11 @@ const DashboardHome = () => {
       </div>
       <Tags activeTag={activeTag} setActiveTag={setActiveTag} />
       <div className="flex flex-col gap-8">
-        {loading && <Spinner size={164} color="darkGreen" />}
+        {loading && (
+          <Spinner
+            options={{ size: 164, color: "darkGreen", position: "fixed" }}
+          />
+        )}
         {data &&
           data.results &&
           data.results.map((result) => (

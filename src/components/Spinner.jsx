@@ -1,7 +1,7 @@
 import gsap from "gsap/all";
 import { useEffect, useRef } from "react";
 
-const Spinner = ({ size, color }) => {
+const Spinner = ({ options }) => {
   const spinnerRef = useRef();
   useEffect(() => {
     gsap.to(spinnerRef.current, {
@@ -14,12 +14,12 @@ const Spinner = ({ size, color }) => {
 
   return (
     <div
-      className={`z-0 spinner fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-x-2 border-b-2 border-${color} rounded-full`}
+      className={`z-0 spinner ${options.position} top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-x-2 border-b-2 border-${options.color} rounded-full`}
       id="spinner"
       ref={spinnerRef}
       style={{
-        height: size,
-        width: size,
+        height: options.size,
+        width: options.size,
       }}
     ></div>
   );
