@@ -114,7 +114,7 @@ const Signup = () => {
                   options={{
                     size: 16,
                     color: "gray",
-                    position: "fixed",
+                    position: "absolute",
                   }}
                 />
               )}
